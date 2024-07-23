@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 
-// Load .env variable
-require('dotenv').config();
+
 
 //Routing
 app.get("/", (req, res) => {
@@ -15,4 +14,6 @@ app.get("/", (req, res) => {
 
 
 // Docking Port
-app.listen(process.env.PORT);
+app.listen(3000, () => {
+    console.log("app listen...");
+});
