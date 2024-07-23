@@ -3,7 +3,7 @@ const app = express();
 
 
 
-//Routing
+// home route
 app.get("/", (req, res) => {
     res.send("hello world");
 });
