@@ -1,4 +1,5 @@
-package Array;
+package array;
+
 import java.util.*;
 
 public class Array {
