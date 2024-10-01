@@ -130,6 +130,50 @@ public class Array {
     return MS;
   }
 
+  // MAX SUBARRAY SUM -- (prefix sum tactic)
+  public static int prefixSum(int[] arr) {
+    int MS = Integer.MIN_VALUE;
+    int CS = 0;
+    int[] prefix = new int[arr.length];
+
+    prefix[0] = arr[0];
+    // calculate prefix array All sum
+    for (int i = 1; i < prefix.length; i++) {
+      prefix[i] = prefix[i - 1] + arr[i];
+    }
+
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = i; j < arr.length; j++) {
+        CS = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+        System.out.print(CS + " ");
+        if (MS < CS) {
+          MS = CS;
+        }
+      }
+      System.out.println();
+    }
+
+    return MS;
+  }
+
+  // MAX SUBARRAY SUM -- (Kadane's Algorithm tactic)
+  public static int kadaneAlgorithm(int[] arr) {
+    int MS = Integer.MIN_VALUE;
+    int CS = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      CS += arr[i];
+      if (CS < 0) {
+        CS = 0;
+      }
+      MS = Math.max(CS, MS);
+    }
+
+    return MS;
+  }
+
+  
+
   public static void main(String[] args) {
     // ---- NUMBER SEARCH
     // int[] number = { 2, 4, 6, 8, 10, 12, 14, 16, 18 };
@@ -170,5 +214,14 @@ public class Array {
     // int[] arr = { 1, -2, 6, -1, 3 };
     // maxSubarraySum(arr);
 
+    // MAX SUBARRAY SUM -- (prefix sum tactic)
+    // int[] arr = { 1, -2, 6, -1, 3 };
+    // System.out.println("MAX = " + prefixSum(arr));
+
+    // MAX SUBARRAY SUM -- (Kadane's Algorithm tactic)
+    // int[] arr = { -2, -3, 4, -1, -2, 1, 5, -3 };
+    // System.out.println("MAX = " + kadaneAlgorithm(arr));
+
+     
   }
 }
