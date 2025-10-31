@@ -1,5 +1,3 @@
-package function;
-
 import java.util.*;
 
 public class Function {

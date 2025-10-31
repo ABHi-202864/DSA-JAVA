@@ -12,6 +12,8 @@ public class Array2d {
         matrix[i][j] = sc.nextInt();
       }
     }
+
+    sc.close();
   }
 
   // OUTPUT Matrix
